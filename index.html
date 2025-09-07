@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Notification System</title>
+    <link rel="stylesheet" href="./notifications.css" />
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+      .button-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        .btn {
+          padding: 8px 16px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          cursor: pointer;
+          font-size: 14px;
+          background-color: #f8f9fa;
+          color: #333;
+          &:hover {
+            background-color: #e9ecef;
+          }
+        }
+      }
+    </style>
+    <div class="button-container">
+      <button
+        class="btn"
+        onclick="NotificationSystem.show('Here is some helpful information', 'info')"
+      >
+        Info
+      </button>
+      <button
+        class="btn"
+        onclick="NotificationSystem.show('Operation completed successfully!', 'success')"
+      >
+        Success
+      </button>
+      <button
+        class="btn"
+        onclick="NotificationSystem.show('Please check your input', 'warning')"
+      >
+        Warning
+      </button>
+      <button
+        class="btn"
+        onclick="NotificationSystem.show('Something went wrong!', 'danger')"
+      >
+        Danger
+      </button>
+      <button
+        class="btn"
+        onclick="NotificationSystem.show('This is a persistent message', 'info', { duration: 0 })"
+      >
+        Persistent
+      </button>
+    </div>
+
+    <div id="notificationContainer"></div>
+
+    <script src="demo.js" type="module"></script>
+    <script>
+      window.NotificationSystem = NotificationSystem;
+    </script>
+  </body>
+</html>
