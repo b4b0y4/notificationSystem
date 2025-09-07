@@ -31,12 +31,10 @@ export default class NotificationSystem {
 
     this.container.appendChild(notification);
 
-    // Trigger animation
     requestAnimationFrame(() => {
       notification.classList.add("show");
     });
 
-    // Auto-hide if duration is set
     if (config.duration > 0) {
       this.scheduleHide(id, config.duration);
     }
@@ -78,15 +76,12 @@ export default class NotificationSystem {
     const notif = this.notifications.get(id);
     if (!notif) return;
 
-    // Clear timeout
     if (notif.timeoutId) {
       clearTimeout(notif.timeoutId);
     }
 
-    // Add hide animation
     notif.element.classList.add("hide");
 
-    // Remove from DOM and map after animation
     setTimeout(() => {
       if (notif.element.parentNode) {
         notif.element.parentNode.removeChild(notif.element);
