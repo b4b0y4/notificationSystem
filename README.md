@@ -33,32 +33,38 @@ Add `notifications.css` to your project or include this in your stylesheet:
   pointer-events: auto;
   max-width: 100%;
 
-  &.show { transform: translateX(0); opacity: 1; }
-  &.hide { transform: translateX(-100%); opacity: 0; }
+  &.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  &.hide {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 
   &.info .notif-content {
     color: rgb(var(--color-blue));
     background-color: rgba(var(--color-blue), 0.1);
     border-left-color: rgb(var(--color-blue));
-    box-shadow: 0 8px 32px rgba(var(--color-blue), 0.15);
+    box-shadow: 0 4px 8px rgba(var(--color-blue), 0.15);
   }
   &.success .notif-content {
     color: rgb(var(--color-green));
     background-color: rgba(var(--color-green), 0.1);
     border-left-color: rgb(var(--color-green));
-    box-shadow: 0 8px 32px rgba(var(--color-green), 0.15);
+    box-shadow: 0 4px 8px rgba(var(--color-green), 0.15);
   }
   &.warning .notif-content {
     color: rgb(var(--color-orange));
     background-color: rgba(var(--color-orange), 0.1);
     border-left-color: rgb(var(--color-orange));
-    box-shadow: 0 8px 32px rgba(var(--color-orange), 0.15);
+    box-shadow: 0 4px 8px rgba(var(--color-orange), 0.15);
   }
   &.danger .notif-content {
     color: rgb(var(--color-red));
     background-color: rgba(var(--color-red), 0.1);
     border-left-color: rgb(var(--color-red));
-    box-shadow: 0 8px 32px rgba(var(--color-red), 0.15);
+    box-shadow: 0 4px 8px rgba(var(--color-red), 0.15);
   }
 }
 
@@ -71,34 +77,65 @@ Add `notifications.css` to your project or include this in your stylesheet:
   font-size: 15px;
   font-weight: 500;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 4px 8px rgba(0, 0, 0, 0.12);
   border-left: 4px solid;
   position: relative;
   overflow: hidden;
 }
 
-.notif-message { display: flex; align-items: center; gap: 12px; flex: 1; }
+.notif-message {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
 
 .notif-close {
-  background: none; border: none; font-size: 20px; cursor: pointer;
-  width: 24px; height: 24px; display: flex; align-items: center;
-  justify-content: center; margin-left: 12px; color: currentColor;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  color: currentColor;
 }
 
 .progress-bar {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-  background-color: currentColor; opacity: 0.6; transform-origin: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: currentColor;
+  opacity: 0.6;
+  transform-origin: left;
   animation: progress linear;
 }
 
 @keyframes progress {
-  from { transform: scaleX(1); }
-  to { transform: scaleX(0); }
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
 
 @media (max-width: 480px) {
-  #notificationContainer { left: 10px; right: 10px; bottom: 10px; max-width: none; }
-  .notif-content { padding: 12px 16px; font-size: 14px; }
+  #notificationContainer {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: none;
+  }
+  .notif-content {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
 }
 ```
 
